@@ -28,7 +28,7 @@ npm run dev
 ## How to collaboarte
 
 - Fork the community repository (https://github.com/Developers-Communit/homepage/tree/main)
-![image](fork.PNG)
+  ![image](public/images/fork.PNG)
 - Lakukan perubahan sesuai dengan tugas anda
 
 - Please use SECTION or DIV when work on html or .ejs file (examples)
@@ -55,4 +55,4 @@ npm run dev
 ```
 
 - Jika dirasa semua sudah selesai, silahkan lakukan Pull Request
-![image](pull.PNG)
+  ![image](public/images/pull.PNG)
