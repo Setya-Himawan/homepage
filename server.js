@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const registerRoutes = require("./routes/registerRoutes");
 const indexRoutes = require("./routes/indexRoutes");
 
+app.use(express.static("public"));
 app.use("/", indexRoutes);
 app.use("/register", registerRoutes);
 
