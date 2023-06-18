@@ -27,7 +27,11 @@ npm run dev
 
 ## How to collaboarte
 
-- Please use <section> or <div> when work on html or .ejs file (examples)
+- Fork the community repository (https://github.com/Developers-Communit/homepage/tree/main)
+  ![image](public/images/fork.PNG)
+- Lakukan perubahan sesuai dengan tugas anda
+
+- Please use SECTION or DIV when work on html or .ejs file (examples)
 
 ```
 <section id="aboutSection">
@@ -36,16 +40,17 @@ npm run dev
 
 <div id="aboutSection">
 </div>
-``
+```
 
 - Please use Comment before yours css code(examples)
-```
 
+```
 // CSS Style for About Section
-
-```
 #aboutSection{
   padding: 0;
   display: flex;
 }
 ```
+
+- Jika dirasa semua sudah selesai, silahkan lakukan Pull Request
+  ![image](public/images/pull.PNG)
