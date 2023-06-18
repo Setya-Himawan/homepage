@@ -1,22 +1,14 @@
-<h1>halaman register</h1>
-<% if (typeof errors !== 'undefined' && errors.length > 0) { %>
-<div class="error">
-  <% errors.forEach(function(error) { %>
-  <p><%= error %></p>
-  <% }) %>
-</div>
-<% } %>
-<form action="/register" method="POST">
-  <label for="username">masukan username : </label>
-  <input type="text" name="username" id="username" />
-  <br />
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebDev</title>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <h1>Halaman Register</h1>
 
-  <label for="email">masukan email : </label>
-  <input type="text" name="email" id="email" />
-
-  <br />
-  <label for="password">masukan password : </label>
-  <input type="password" name="password" id="password" />
-  <br />
-  <button>register</button>
-</form>
+    <script src="/js/index.js"></script>
+  </body>
+</html>
