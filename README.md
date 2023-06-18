@@ -40,14 +40,12 @@ npm run dev
 
 <div id="aboutSection">
 </div>
-``
+```
 
 - Please use Comment before yours css code(examples)
-```
 
+```
 // CSS Style for About Section
-
-```
 #aboutSection{
   padding: 0;
   display: flex;
