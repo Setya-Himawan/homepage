@@ -24,14 +24,13 @@ app.use(express.static("public"));
 // app.listen(PORT, () => {
 //   console.log(`App is running on port ${PORT}`);
 // });
-const testController = require("./controllers/user-controller");
+const userController = require("./controllers/user-controller");
+const authController = require("./controllers/auth-controller");
 
 // Sample route
 app.get('/');
-app.post('/register', testController.registerUser);
-app.get('/login', (req, res) => {
-  res.send('ini login!');
-});
+app.post('/register', userController.registerUser);
+app.post('/login', authController.loginUser);
 
 
 // Start the server

@@ -1,4 +1,3 @@
-const { response } = require('express');
 const bcrypt = require("bcrypt");
 const { UserRepository } = require('../repositories/user/user-repository')
 
