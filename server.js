@@ -15,20 +15,16 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-const userController = require("./controllers/user-controller");
-const authController = require("./controllers/auth-controller");
-
-const userRoutes = require("./routes/userRoutes");
+const authRoutes = require("./routes/auth-routes");
+const userRoutes = require("./routes/user-routes");
 
 // Sample route
 app.get("/", (req, res) => {
   res.render("index", { title: "Express with Mustache" });
 });
 
-app.get("/user", userController.getUser);
 app.use("/", userRoutes);
-// app.post("/register", userController.registerUser);
-// app.post("/login", authController.loginUser);
+app.use("/", authRoutes);
 
 // Start the server
 app.listen(port, () => {

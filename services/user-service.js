@@ -15,27 +15,6 @@ class UserService {
       console.error(e);
     }
   }
-
-  async register(request) {
-    const { username, email, password, confirmPassword } = request;
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    
-    const data = {
-      username: username,
-      password: hashedPassword,
-      email: email,
-    };
-
-    try {
-      // MENDAFTARKAN USER
-      this.userRepository.createUser(data);
-      console.log("Berhasil Daftar");
-    } catch (error) {
-      console.error(error);
-    }
-  }
 }
 
 module.exports = { UserService };

@@ -1,4 +1,3 @@
-const { connection } = require("../../databases/connection");
 const { Database } = require("../../databases/database");
 
 class UserRepository {
@@ -9,7 +8,6 @@ class UserRepository {
   async getUsers() {
     const query = "SELECT * FROM USER;";
     const users = await this.database.query(query);
-    // console.log(users[0]);
     return users[0];
   }
 
@@ -23,9 +21,10 @@ class UserRepository {
   async getUserCredentials(request) {
     console.log("masuk user repository");
     const query =
-      "SELECT username, password FROM USERS WHERE (username) LIKE ? LIMIT 1";
+      "SELECT username, password FROM USER WHERE (username) LIKE ? LIMIT 1";
     const params = [request.username];
     const user = await this.database.query(query, params);
+    // console.log(user);
     return user[0][0];
   }
 }
