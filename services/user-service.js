@@ -1,31 +1,41 @@
 const bcrypt = require("bcrypt");
-const { UserRepository } = require('../repositories/user/user-repository')
+const { UserRepository } = require("../repositories/user/user-repository");
 
 class UserService {
-    constructor() {
-        // MENGGUNAKAN USER REPOSITORY
-        this.userRepository = new UserRepository();
+  constructor() {
+    // MENGGUNAKAN USER REPOSITORY
+    this.userRepository = new UserRepository();
+  }
+
+  async getUserService() {
+    try {
+      // console.log(await this.userRepository.getUsers());
+      return await this.userRepository.getUsers();
+    } catch (e) {
+      console.error(e);
     }
+  }
 
-    async register(request) {
-        const { username, email, password } = request;
+  async register(request) {
+    const { username, email, password, confirmPassword } = request;
 
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const data = {
-            username: username,
-            password: hashedPassword,
-            email: email,
-        }
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-        try {
-            // MENDAFTARKAN USER
-            this.userRepository.createUser(data)
-            console.log("Berhasil Daftar");
-        } catch (error) {
-            console.error(error);
-        }
+    
+    const data = {
+      username: username,
+      password: hashedPassword,
+      email: email,
+    };
+
+    try {
+      // MENDAFTARKAN USER
+      this.userRepository.createUser(data);
+      console.log("Berhasil Daftar");
+    } catch (error) {
+      console.error(error);
     }
-
+  }
 }
 
 module.exports = { UserService };

@@ -6,9 +6,9 @@ const cors = require("cors");
 const app = express();
 const port = 3000;
 
-app.engine('mustache', mustache());
-app.set('view engine', 'mustache');
-app.set('views', __dirname + '/views');
+app.engine("mustache", mustache());
+app.set("view engine", "mustache");
+app.set("views", __dirname + "/views");
 
 app.use(cors());
 app.use(express.json());
@@ -18,13 +18,17 @@ app.use(express.static("public"));
 const userController = require("./controllers/user-controller");
 const authController = require("./controllers/auth-controller");
 
+const userRoutes = require("./routes/userRoutes");
+
 // Sample route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Express with Mustache' });
+app.get("/", (req, res) => {
+  res.render("index", { title: "Express with Mustache" });
 });
 
-app.post('/register', userController.registerUser);
-app.post('/login', authController.loginUser);
+app.get("/user", userController.getUser);
+app.use("/", userRoutes);
+// app.post("/register", userController.registerUser);
+// app.post("/login", authController.loginUser);
 
 // Start the server
 app.listen(port, () => {
