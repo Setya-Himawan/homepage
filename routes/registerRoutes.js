@@ -1,6 +1,6 @@
 const express = require("express");
 const { body } = require("express-validator");
-const registerController = require("../controllers/registerController");
+const testController = require("../controllers/user-controller");
 
 const router = express.Router();
 
@@ -19,7 +19,7 @@ router.post(
       .isLength({ min: 6 })
       .withMessage("Password must be at least 6 characters long"),
   ],
-  registerController.registerUser
+  testController.registerUser
 );
 
 module.exports = router;
