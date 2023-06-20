@@ -18,10 +18,10 @@ class UserRepository {
         return this.database.query(query, params);
     }
 
-    async getUserCredentials(request) {
+    async getUserCredentials(username) {
         console.log('masuk user repository');
-        const query = "SELECT username, password FROM USERS WHERE (username) LIKE ? LIMIT 1";
-        const params = [request.username];
+        const query = "SELECT id, username, password FROM USERS WHERE (username) LIKE ? LIMIT 1";
+        const params = [username];
         const user = await this.database.query(query, params);
         return user[0][0];
     }
