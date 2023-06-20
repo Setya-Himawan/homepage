@@ -18,6 +18,12 @@ class UserRepository {
     return this.database.query(query, params);
   }
 
+  createUser(request) {
+      const query = "INSERT INTO USERS (username, email, password) VALUES (?, ?, ?)";
+      const params = [request.username, request.email, request.password];
+      return this.database.query(query, params);
+  }
+
   async getUserCredentials(request) {
     console.log("masuk user repository");
     const query =

@@ -12,18 +12,19 @@ const registerUser = async (req, res, next) => {
   }
 };
 
-const loginUser = async (req, res, next) => {
-  const authService = new AuthService();
+class AuthController {
+    constructor() {
+        this.authService = new AuthService();
+    }
 
-  try {
-    console.log("masuk login controller");
-    const user = await authService.login(req.body);
-    console.log("keluar auth service");
-    console.log(user);
-    res.send(user);
-  } catch (e) {
-    next(e);
-  }
-};
+    async login(req, res) {
+        try {
+            await this.authService.authenticateUser(req, res);
+            return res.redirect('/');
+        } catch (error) {
+            return res.status(500).json({ message: 'Internal Server Error' });
+        }
+    }
+}
 
-module.exports = { registerUser, loginUser };
+module.exports = { AuthController };
